@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> </head>
+
+<script type="text/javascript">
+ $(document).ready(function()
+ {
+ $("#insert").click(function(){
+ var title=$("#title").val();
+ var duration=$("#duration").val();
+ var price=$("#price").val();
+ var dataString="title="+title+"&duration="+duration+"&price="+price+"&insert=";
+ if($.trim(title).length>0 & $.trim(duration).length>0 & $.trim(price).length>0)
+ {
+ $.ajax({
+ type: "POST",
+ url:"http:
+//localhost/phonegap/database/insert.php",
+
+ data: dataString,
+ crossDomain: true,
+ cache: false,
+ beforeSend: function(){ $("#insert").val('Connecting...');},
+ success: function(data){
+ if(data=="success")
+ {
+ alert("inserted");
+ $("#insert").val('submit');
+ }
+ else if(data=="error")
+ {
+ alert("error");
+ }
+ }
+ });
+ }return false;
+ });
+ });
+ </script>
+    
+<body>
+    
+        <style>
+            .navbar-brand {
+                float: left;
+                text-align: center;
+                width: 100%;
+                padding: 20px;
+
+            }
+            
+            .navbar-brand {
+                float: none;
+                padding: 15px;
+
+            }
+        </style>
+<header>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+            <a class="navbar-brand" href="#">C Box</a>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02" >
+                <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+                    <li class="nav-item active"> <a class="nav-link" href="about.html">About <span class="sr-only">(current)</span></a> </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container" style="margin-top:2%;">
+        <div>
+            <div class="jumbotron" style="">
+                <div class="container">
+                <center>
+                    <div class="">
+                        <div class="d-inline-block" style="margin-right:5%;"> 
+                            <a href="comp.html"style="text-decoration: none;"><i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
+                            <p>Complain</p>
+                            </a> 
+                        </div>
+                        <div class="d-inline-block" style="margin-left:5%;"> 
+                            <a href="viewcomp.html" style="text-decoration: none;"><i class="fa fa-list-ul fa-3x" aria-hidden="true"></i>
+                            <p>View</p>
+                            </a> 
+                        </div>
+                        <div class="d-inline-block" style="margin-left:10%;"> 
+                            <a href="help.html" style="text-decoration: none;"><i class="fa fa-question fa-3x" aria-hidden="true"></i>
+                            <p>Help</p>
+                            </a> 
+                        </div>
+                    </div>
+                </center>
+                </div>
+            </div>
+        </div>
+        <p>Complains <span class="badge badge-default">3</span></p>
+    </div>
+    <style>
+        .footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+        .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  background-color: #f5f5f5;
+
+        
+        }
+        
+    
+
+        
+    </style>
+   <footer class="footer">
+      <div class="container">
+        <p class="text-muted" style="text-align:center;">C Box 2017</p>
+      </div>
+    </footer>
+</body>
+
+</html>
